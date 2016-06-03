@@ -1,0 +1,19 @@
+{
+	"items": [
+		{
+		"CaseSuite": "Shopping",
+		"CaseID":confirmGoods_001",
+		"FunctionDescription": "aaa",
+		"keyWords": "confirmGoodsInfo",
+		"apiParameters":"('myBook','5','child')"
+		},
+		{
+		"CaseSuite": "Shopping",
+		"CaseID":confirmGoods_001",
+		"FunctionDescription": "bbb",
+		"keyWords": "confirmGoodsInfo",
+		"apiParameters":"('myBook','5','child')"
+		
+		}
+		]
+}
