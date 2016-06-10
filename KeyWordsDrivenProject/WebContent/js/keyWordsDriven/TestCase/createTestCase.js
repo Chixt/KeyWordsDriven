@@ -130,13 +130,33 @@ define(["dojo/_base/declare",
 			    
 			    domConstruct.place(addButton.domNode,refreshButton.domNode,"after");
 			 
+			    
+			    var modifyButton = new Button({
+			        label: "Modify",
+			        onClick: function(){    	
+			        	
+			        }
+			    }, document.createElement('div'));
+			    domConstruct.place(modifyButton.domNode, addButton.domNode, "after");
+			  
+			    var deleteButton = new Button({
+			        label: "Delete",
+			        onClick: function(){    	
+			        	
+			        }
+			    }, document.createElement('div'));
+			    domConstruct.place(deleteButton.domNode, modifyButton.domNode, "after");
+			    
+			    
+			    
+			    
 			    var execButton = new Button({
 			        label: "Start to Run Test Bucket",
 			        onClick: function(){    	
 			        	
 			        }
 			    }, document.createElement('div'));
-			    domConstruct.place(execButton.domNode, addButton.domNode, "after");
+			    domConstruct.place(execButton.domNode, deleteButton.domNode, "after");
 			    
 
 		}

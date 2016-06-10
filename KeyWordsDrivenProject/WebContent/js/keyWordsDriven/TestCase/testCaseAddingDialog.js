@@ -54,7 +54,7 @@ templateString : template,
  */
 postCreate : function() {
 	
-	Parser.parse();
+
 	// Build dialog object
 	this._dialog = new Dialog( {
 		title : "Test Case Adding Dialog"
@@ -96,9 +96,42 @@ destroy:function(){
  * 
  */
 OKClicked : function() {
+	
+	 var context = this;
+	
+	dojo.ready(this.sendText(context));
+	
 	this._dialog.hide();
 	
 },
+
+
+sendText: function (context){
+
+	    // The parameters to pass to xhrPost, the message, and the url to send it to
+	    // Also, how to handle the return and callbacks.
+	    var xhrArgs = {
+	      url: "/keyWordsDriven/newcase/Add",
+	      postData: dojo.toJson(
+	      {
+	    	      "caseSuiteID": context.caseSuiteInput.value,
+	    	      "keyWordsDescription": context.keywordsInput.value,
+	    	      "apiFunction": context.functionNameInput.value,
+	    		  "apiParameters": context.apiParametersInput.value
+	      }),
+	      handleAs: "text",
+	      headers: { "Content-Type": "application/json" },
+	      load: function(data){
+	       alert('success~' + data);
+	      },
+	      error: function(error){
+    	  alert('failed!'+ error);
+	      }
+	    }
+	    // Call the asynchronous xhrPost
+	    var deferred = dojo.xhrPost(xhrArgs);
+	 
+	},
 
 /**
  * cancelClicked.
